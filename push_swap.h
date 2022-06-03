@@ -54,5 +54,6 @@ int			not_dup(char **av);
 int			*fill_sorted(t_stack *a, int size);
 void		sort_sorted(int *sorted, int size);
 void		ft_index(int *sorted, t_stack **a, int size);
+void	big_sort(t_stack **a, t_stack **b, int *sorted, int size);
 
 #endif
