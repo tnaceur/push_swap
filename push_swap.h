@@ -26,9 +26,12 @@ typedef struct s_stack{
 }	t_stack;
 
 typedef struct s_info {
-	int	min_num;
-	int	max_num;
+	int	size;
+	int	min;
+	int	max;
 	int	nbr_push;
+	int	med;
+	int	position;
 }	t_info;
 
 t_stack		*ft_lstnew(int content);
@@ -54,6 +57,6 @@ int			not_dup(char **av);
 int			*fill_sorted(t_stack *a, int size);
 void		sort_sorted(int *sorted, int size);
 void		ft_index(int *sorted, t_stack **a, int size);
-void	big_sort(t_stack **a, t_stack **b, int *sorted, int size);
+int			ft_lstsize(t_stack *a);
 
 #endif

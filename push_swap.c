@@ -85,6 +85,8 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 	int		*sorted;
+	int		nbr_push;
+	int		max;
 
 	if (ft_isalnum(av) && not_dup(av))
 	{
@@ -96,13 +98,7 @@ int	main(int ac, char **av)
 		if (ac <= 6)
 			small_sort(&a, &b, ac - 1);
 		else
-			big_sort(&a, &b, sorted, ac - 1);
-		b = a;
-		while (b)
-		{
-			printf("%d\n", b->data);
-			b = b->next;
-		}
+			big_sort(&a, &b);
 	}
 	else
 		error_message("WRONG ARGUMENTS\n");
@@ -129,27 +125,4 @@ void	ft_index(int *sorted, t_stack **a, int size)
 		else
 			tmp = tmp->next;
 	}
-}
-
-void	big_sort(t_stack **a, t_stack **b, int *sorted, int size)
-{
-	int		i;
-	int		nbr_push;
-	int		max;
-	int		min;
-	t_stack	*tmp;
-
-	i = 0;
-	tmp = *a;
-	while (tmp)
-	{
-		if (tmp->index == 1)
-			break ;
-		tmp = tmp->next;
-	}
-	min = tmp->data;
-	tmp = *a;
-	nbr_push = (size - 5) / 3 + 1;
-	max = nbr_push + min - 1;
-	printf("MAX : %d\nNBR_PUSH : %d\nMIN : %d\n", max, nbr_push, min);
 }
