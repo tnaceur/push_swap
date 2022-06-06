@@ -194,6 +194,8 @@ void	ft_push(t_stack **a, t_stack **b, t_info *data)
 			data->position--;
 		}
 		ft_pb(a, b);
+		if ((*b)->data < data->med)
+			ft_rb(b);
 	}
 	else
 	{
@@ -203,5 +205,7 @@ void	ft_push(t_stack **a, t_stack **b, t_info *data)
 			data->position++;
 		}
 		ft_pb(a, b);
+		if ((*b)->data < data->med)
+			ft_rb(b);
 	}
 }

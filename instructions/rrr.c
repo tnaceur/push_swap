@@ -28,9 +28,9 @@ void	rrr(t_stack **a)
 	*a = last;
 }
 
-void    ft_rrr(t_stack **a, t_stack **b)
+void	ft_rrr(t_stack **a, t_stack **b)
 {
-    rrr(a);
-    rrr(b);
-    write(1, "rrr\n", 4);
+	rrr(a);
+	rrr(b);
+	write(1, "rrr\n", 4);
 }

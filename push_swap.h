@@ -46,6 +46,7 @@ void		ft_ss(t_stack **a, t_stack **b);
 void		ft_rr(t_stack **a, t_stack **b);
 void		ft_pa(t_stack **a, t_stack **b);
 void		ft_pb(t_stack **b, t_stack **a);
+void		ft_rrr(t_stack **a, t_stack **b);
 void		sort_norm2(t_stack **a, t_stack **b);
 void		ft_sb(t_stack **b);
 int			is_sorted(t_stack **a);
