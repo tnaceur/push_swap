@@ -120,20 +120,35 @@ void	sort_sorted(int *sorted, int size)
 	}
 }
 
+int	nbr_push_init(int size)
+{
+	if (size <= 100)
+		return ((size - 5) / 3 + 1);
+	else
+		return ((size - 5) / 5 + 1);
+}
+
 void	big_sort(t_stack **a, t_stack **b)
 {
 	t_info	data;
 
 	data.min = small_index(a);
 	data.size = ft_lstsize(*a);
-	data.nbr_push = (data.size - 5) / 3 + 1;
+	data.nbr_push = nbr_push_init(data.size);
 	data.max = data.min + data.max - 1;
 	data.position = return_position(a, data);
 	data.med = (data.min + data.max) / 2;
 	while (data.size > 5)
 	{
 		ft_push(a, b, &data);
+		data.min = small_index(a);
+		data.size = ft_lstsize(*a);
+		data.nbr_push = nbr_push_init(data.size);
+		data.max = data.min + data.max - 1;
+		data.position = return_position(a, data);
+		data.med = (data.min + data.max) / 2;
 	}
+	sort5(a, b);
 }
 
 int	small_index(t_stack **a)

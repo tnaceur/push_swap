@@ -39,6 +39,7 @@ t_stack		*ft_lstlast(t_stack *lst);
 void		ft_lstadd_back(t_stack **alst, t_stack *new);
 int			ft_atoi(char *str);
 void		ft_ra(t_stack **a);
+void		ft_rb(t_stack **b);
 void		ft_rra(t_stack **a);
 void		ft_sa(t_stack **a);
 void		ft_ss(t_stack **a, t_stack **b);
@@ -51,6 +52,7 @@ int			is_sorted(t_stack **a);
 void		small_sort(t_stack **a, t_stack **b, int size);
 void		sort3(t_stack **a);
 void		sort4(t_stack **a, t_stack **b);
+void		sort5(t_stack **a, t_stack **b);
 int			ft_smal_num(t_stack **a);
 int			ft_isalnum(char **av);
 int			not_dup(char **av);
@@ -58,5 +60,11 @@ int			*fill_sorted(t_stack *a, int size);
 void		sort_sorted(int *sorted, int size);
 void		ft_index(int *sorted, t_stack **a, int size);
 int			ft_lstsize(t_stack *a);
+int			small_index(t_stack **a);
+int			return_position(t_stack **a, t_info data);
+void		ft_push(t_stack **a, t_stack **b, t_info *data);
+int			nbr_push_init(int size);
+void		big_sort(t_stack **a, t_stack **b);
+void		ft_rrb(t_stack **b);
 
 #endif

@@ -12,8 +12,25 @@
 
 #include "../push_swap.h"
 
+void	rr(t_stack **a)
+{
+	t_stack	*new_a;
+	t_stack	*first;
+	t_stack	*last;
+
+	last = *a;
+	first = (*a)->next;
+	while (last->next)
+		last = last->next;
+	last->next = *a;
+	(*a)->next = NULL;
+	new_a = first;
+	*a = new_a;
+}
+
 void	ft_rr(t_stack **a, t_stack **b)
 {
-	ft_ra(a);
-	ft_ra(b);
+	rr(a);
+	rr(b);
+	write(1, "rr\n", 3);
 }

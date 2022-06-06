@@ -9,6 +9,7 @@ SRCS = utils/ft_atoi.c\
 	   utils/ft_lstnew.c\
 	   utils/sorting_utils.c\
 	   utils/sorting_utils2.c\
+	   utils/ft_lstsize.c\
 	   instructions/pa.c\
 	   instructions/pb.c\
 	   instructions/ra.c\

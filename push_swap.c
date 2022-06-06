@@ -85,8 +85,6 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 	int		*sorted;
-	int		nbr_push;
-	int		max;
 
 	if (ft_isalnum(av) && not_dup(av))
 	{

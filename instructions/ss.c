@@ -12,8 +12,23 @@
 
 #include "../push_swap.h"
 
+void	ss(t_stack **a)
+{
+	t_stack	*sec;
+
+	sec = *a;
+	if (sec->next)
+		sec = sec->next;
+	else
+		return ;
+	(*a)->next = sec->next;
+	sec->next = *a;
+	*a = sec;
+}
+
 void	ft_ss(t_stack **a, t_stack **b)
 {
-	ft_sa(a);
-	ft_sa(b);
+	ss(a);
+	ss(b);
+	write(1, "ss\n", 3);
 }
