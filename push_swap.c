@@ -99,10 +99,10 @@ int	main(int ac, char **av)
 			big_sort(&a, &b);
 		t_stack	*tmp;
 
-		tmp = a;
+		tmp = b;
 		while (tmp)
 		{
-			printf("%d\n", tmp->data);
+			printf("%d\n",tmp->index);
 			tmp = tmp->next;
 		}
 	}

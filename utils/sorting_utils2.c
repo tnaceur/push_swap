@@ -135,20 +135,23 @@ void	big_sort(t_stack **a, t_stack **b)
 	data.min = small_index(a);
 	data.size = ft_lstsize(*a);
 	data.nbr_push = nbr_push_init(data.size);
-	data.max = data.min + data.max - 1;
+	data.max = data.min + data.nbr_push - 1;
 	data.position = return_position(a, data);
 	data.med = (data.min + data.max) / 2;
 	while (data.size > 5)
 	{
-		ft_push(a, b, &data);
+		ft_push_b(a, b, &data);
 		data.min = small_index(a);
 		data.size = ft_lstsize(*a);
 		data.nbr_push = nbr_push_init(data.size);
-		data.max = data.min + data.max - 1;
+		data.max = data.min + data.nbr_push - 1;
 		data.position = return_position(a, data);
 		data.med = (data.min + data.max) / 2;
 	}
 	sort5(a, b);
+	ft_lstlast((*a))->index = -1;
+	// while ((*b))
+	// 	ft_push_a(a, b, &data);
 }
 
 int	small_index(t_stack **a)
@@ -184,7 +187,7 @@ int	return_position(t_stack **a, t_info data)
 	return (i);
 }
 
-void	ft_push(t_stack **a, t_stack **b, t_info *data)
+void	ft_push_b(t_stack **a, t_stack **b, t_info *data)
 {
 	if (data->position < (data->size / 2))
 	{
@@ -208,4 +211,42 @@ void	ft_push(t_stack **a, t_stack **b, t_info *data)
 		if ((*b)->data < data->med)
 			ft_rb(b);
 	}
+}
+
+void	ft_push_a(t_stack **a, t_stack **b, t_info *data)
+{
+	data->min = small_index(a);
+	data->size = ft_lstsize(*a);
+	data->nbr_push = nbr_push_init(data->size);
+	data->max = data->min + data->nbr_push - 1;
+	if ((*a)->index -1 == (*b)->index)
+		ft_pa(a, b);
+	else
+	{
+		if (exist((*a)->index - 1, b))
+		{
+			if (((*b)->index < (*a)->index
+				&& (*b)->index > ft_lstlast((*a))->index))
+			{
+				ft_pa(a, b);
+				ft_ra(a);
+			}
+		}
+		else
+			ft_rra(a);
+	}
+}
+
+int	exist(int num, t_stack **b)
+{
+	t_stack	*tmp;
+
+	tmp = *b;
+	while (tmp)
+	{
+		if (tmp->index == num)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }

@@ -63,9 +63,11 @@ void		ft_index(int *sorted, t_stack **a, int size);
 int			ft_lstsize(t_stack *a);
 int			small_index(t_stack **a);
 int			return_position(t_stack **a, t_info data);
-void		ft_push(t_stack **a, t_stack **b, t_info *data);
+void		ft_push_b(t_stack **a, t_stack **b, t_info *data);
+void		ft_push_a(t_stack **a, t_stack **b, t_info *data);
 int			nbr_push_init(int size);
 void		big_sort(t_stack **a, t_stack **b);
 void		ft_rrb(t_stack **b);
+int			exist(int num, t_stack **b);
 
 #endif
