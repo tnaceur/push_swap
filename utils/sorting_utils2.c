@@ -150,8 +150,15 @@ void	big_sort(t_stack **a, t_stack **b)
 	}
 	sort5(a, b);
 	ft_lstlast((*a))->index = -1;
-	// while ((*b))
-	// 	ft_push_a(a, b, &data);
+	while ((*b))
+	{
+		printf("a : %d  b : %d\n", (*a)->index, (*b)->index);
+		ft_push_a(a, b, &data);
+	}
+	while (ft_lstlast(*a)->index != -1)
+	{
+		ft_rra(a);
+	}
 }
 
 int	small_index(t_stack **a)
@@ -215,11 +222,7 @@ void	ft_push_b(t_stack **a, t_stack **b, t_info *data)
 
 void	ft_push_a(t_stack **a, t_stack **b, t_info *data)
 {
-	data->min = small_index(a);
-	data->size = ft_lstsize(*a);
-	data->nbr_push = nbr_push_init(data->size);
-	data->max = data->min + data->nbr_push - 1;
-	if ((*a)->index -1 == (*b)->index)
+	if ((*a)->index - 1 == (*b)->index)
 		ft_pa(a, b);
 	else
 	{
@@ -231,6 +234,8 @@ void	ft_push_a(t_stack **a, t_stack **b, t_info *data)
 				ft_pa(a, b);
 				ft_ra(a);
 			}
+			else
+				ft_search(b, a);
 		}
 		else
 			ft_rra(a);
@@ -248,5 +253,39 @@ int	exist(int num, t_stack **b)
 			return (1);
 		tmp = tmp->next;
 	}
+	return (0);
+}
+
+void	ft_search(t_stack **b, t_stack **a)
+{
+	while ((*b)->index != (*a)->index - 1)
+	{
+		if (lfo9(b, (*a)->index - 1) == 1)
+			ft_rb(b);
+		else
+			ft_rrb(b);
+	}
+}
+int	lfo9(t_stack **b, int num)
+{
+	int		i;
+	int		j;
+	t_stack	*tmp;
+
+	i = 0;
+	j = 0;
+	tmp = *b;
+	while (tmp)
+	{
+		if (tmp->index == num)
+		{
+			j = i;
+			break ;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	if (j < (ft_lstsize(*b) / 2))
+		return (1);
 	return (0);
 }

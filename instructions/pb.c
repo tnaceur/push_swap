@@ -19,9 +19,7 @@ void	ft_pb(t_stack **b, t_stack **a)
 
 	if (!*b)
 		return ;
-	new_b = *b;
-	if ((*b)->next)
-		new_b = (*b)->next;
+	new_b = (*b)->next;
 	(*b)->next = *a;
 	new_a = *b;
 	*a = new_a;

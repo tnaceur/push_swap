@@ -97,14 +97,14 @@ int	main(int ac, char **av)
 			small_sort(&a, &b, ac - 1);
 		else
 			big_sort(&a, &b);
-		t_stack	*tmp;
+		// t_stack	*tmp;
 
-		tmp = b;
-		while (tmp)
-		{
-			printf("%d\n",tmp->index);
-			tmp = tmp->next;
-		}
+		// tmp = a;
+		// while (tmp)
+		// {
+		// 	printf("%d\n",tmp->index);
+		// 	tmp = tmp->next;
+		// }
 	}
 	else
 		error_message("WRONG ARGUMENTS\n");

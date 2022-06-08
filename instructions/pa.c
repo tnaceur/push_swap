@@ -19,9 +19,7 @@ void	ft_pa(t_stack **a, t_stack **b)
 
 	if (!*b)
 		return ;
-	new_b = *b;
-	if ((*b)->next)
-		new_b = (*b)->next;
+	new_b = (*b)->next;
 	(*b)->next = *a;
 	new_a = *b;
 	*a = new_a;

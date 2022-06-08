@@ -69,5 +69,7 @@ int			nbr_push_init(int size);
 void		big_sort(t_stack **a, t_stack **b);
 void		ft_rrb(t_stack **b);
 int			exist(int num, t_stack **b);
+void		ft_search(t_stack **b, t_stack **a);
+int			lfo9(t_stack **b, int num);
 
 #endif
