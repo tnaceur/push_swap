@@ -97,38 +97,7 @@ int	main(int ac, char **av)
 			small_sort(&a, &b, ac - 1);
 		else
 			big_sort(&a, &b);
-		// t_stack	*tmp;
-
-		// tmp = a;
-		// while (tmp)
-		// {
-		// 	printf("%d\n",tmp->index);
-		// 	tmp = tmp->next;
-		// }
 	}
 	else
 		error_message("WRONG ARGUMENTS\n");
-}
-
-void	ft_index(int *sorted, t_stack **a, int size)
-{
-	t_stack	*tmp;
-	int		i;
-	int		j;
-
-	tmp = *a;
-	i = 0;
-	j = 0;
-	while (tmp)
-	{
-		if (i < size && tmp->data == sorted[i])
-		{
-			j++;
-			tmp->index = j;
-			tmp = *a;
-			i++;
-		}
-		else
-			tmp = tmp->next;
-	}
 }

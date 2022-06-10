@@ -18,13 +18,16 @@ void	ft_rb(t_stack **b)
 	t_stack	*first;
 	t_stack	*last;
 
-	last = *b;
-	first = (*b)->next;
-	while (last->next)
-		last = last->next;
-	last->next = *b;
-	(*b)->next = NULL;
-	new_b = first;
-	*b = new_b;
-	write(1, "rb\n", 3);
+	if ((*b)->next)
+	{
+		last = *b;
+		first = (*b)->next;
+		while (last->next)
+			last = last->next;
+		last->next = *b;
+		(*b)->next = NULL;
+		new_b = first;
+		*b = new_b;
+		write(1, "rb\n", 3);
+	}
 }

@@ -18,13 +18,16 @@ void	ft_ra(t_stack **a)
 	t_stack	*first;
 	t_stack	*last;
 
-	last = *a;
-	first = (*a)->next;
-	while (last->next)
-		last = last->next;
-	last->next = *a;
-	(*a)->next = NULL;
-	new_a = first;
-	*a = new_a;
-	write(1, "ra\n", 3);
+	if ((*a)->next)
+	{
+		last = *a;
+		first = (*a)->next;
+		while (last->next)
+			last = last->next;
+		last->next = *a;
+		(*a)->next = NULL;
+		new_a = first;
+		*a = new_a;
+		write(1, "ra\n", 3);
+	}
 }
