@@ -12,7 +12,7 @@
 
 #include "../push_swap.h"
 
-void	ft_push_a(t_stack **a, t_stack **b, t_info *data)
+void	ft_push_a(t_stack **a, t_stack **b)
 {
 	if ((*a)->index - 1 == (*b)->index)
 		ft_pa(a, b);

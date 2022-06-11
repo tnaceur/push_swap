@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tnaceur <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/18 11:53:32 by tnaceur           #+#    #+#             */
-/*   Updated: 2022/05/18 11:53:51 by tnaceur          ###   ########.fr       */
+/*   Created: 2022/05/18 15:06:57 by tnaceur           #+#    #+#             */
+/*   Updated: 2022/05/18 15:07:16 by tnaceur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_sb(t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
-	int		*sorted;
+	t_stack	*sec;
 
-	if (ft_isalnum(av) && not_dup(av))
-	{
-		b = NULL;
-		fill_stack(&a, av);
-		sorted = fill_sorted(a, ac - 1);
-		sort_sorted(sorted, ac - 1);
-		ft_index(sorted, &a, ac - 1);
-		if (ac <= 6)
-			small_sort(&a, &b, ac - 1);
-		else
-			big_sort(&a, &b);
-	}
+	sec = *b;
+	if (sec->next)
+		sec = sec->next;
 	else
-		error_message("WRONG ARGUMENTS\n");
+		return ;
+	sec->next = *b;
+	(*b)->next = sec->next;
+	*b = sec;
 }

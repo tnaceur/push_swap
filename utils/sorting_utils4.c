@@ -114,7 +114,7 @@ void	big_sort(t_stack **a, t_stack **b)
 	sort5(a, b);
 	ft_lstlast((*a))->index = -1;
 	while ((*b))
-		ft_push_a(a, b, &data);
+		ft_push_a(a, b);
 	while (ft_lstlast(*a)->index != -1)
 		ft_rra(a);
 }

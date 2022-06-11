@@ -22,8 +22,8 @@ static int	ft_isppace(char *str, int i)
 
 static int	ft_num(char *str, int i, int signe)
 {
-	int	cmp;
-	int	nb;
+	int		cmp;
+	long	nb;
 
 	cmp = 0;
 	nb = 0;
@@ -31,6 +31,9 @@ static int	ft_num(char *str, int i, int signe)
 	{
 		nb *= 10;
 		nb += str[i] - '0';
+		if ((nb > 2147483647 && signe == 1)
+			|| (nb > 2147483648 && signe == -1))
+			error_message("Error\n");
 		i++ ;
 		cmp++ ;
 	}
@@ -50,6 +53,8 @@ int	ft_atoi(char *str)
 	i = 0;
 	i = ft_isppace(str, i);
 	signe = 1;
+	if (!str[i])
+		error_message("Error\n");
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')

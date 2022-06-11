@@ -58,18 +58,21 @@ int			ft_smal_num(t_stack **a);
 int			ft_isalnum(char **av);
 int			not_dup(char **av);
 int			*fill_sorted(t_stack *a, int size);
+void		fill_stack(t_stack **a, char **av);
+void		error_message(char *str);
 void		sort_sorted(int *sorted, int size);
 void		ft_index(int *sorted, t_stack **a, int size);
 int			ft_lstsize(t_stack *a);
 int			small_index(t_stack **a);
 int			return_position(t_stack **a, t_info data);
 void		ft_push_b(t_stack **a, t_stack **b, t_info *data);
-void		ft_push_a(t_stack **a, t_stack **b, t_info *data);
+void		ft_push_a(t_stack **a, t_stack **b);
 int			nbr_push_init(int size);
 void		big_sort(t_stack **a, t_stack **b);
 void		ft_rrb(t_stack **b);
 int			exist(int num, t_stack **b);
 void		ft_search(t_stack **b, t_stack **a);
 int			lfo9(t_stack **b, int num);
+char		*get_next_line(int fd);
 
 #endif
