@@ -16,13 +16,16 @@ void	ft_sb(t_stack **b)
 {
 	t_stack	*sec;
 
-	sec = *b;
-	if (sec->next)
-		sec = sec->next;
-	else
-		return ;
-	sec->next = *b;
-	(*b)->next = sec->next;
-	*b = sec;
-	write(1, "sb\n", 3);
+	if (*b)
+	{
+		sec = *b;
+		if (sec->next)
+			sec = sec->next;
+		else
+			return ;
+		sec->next = *b;
+		(*b)->next = sec->next;
+		*b = sec;
+		write(1, "sb\n", 3);
+	}
 }
