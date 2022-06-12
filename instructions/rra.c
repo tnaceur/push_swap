@@ -17,14 +17,17 @@ void	ft_rra(t_stack **a)
 	t_stack	*before_last;
 	t_stack	*last;
 
-	last = *a;
-	while (last->next)
+	if ((*a)->next)
 	{
-		before_last = last;
-		last = last->next;
+		last = *a;
+		while (last->next)
+		{
+			before_last = last;
+			last = last->next;
+		}
+		before_last->next = NULL;
+		last->next = *a;
+		*a = last;
+		write(1, "rra\n", 4);
 	}
-	before_last->next = NULL;
-	last->next = *a;
-	*a = last;
-	write(1, "rra\n", 4);
 }

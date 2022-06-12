@@ -18,12 +18,15 @@ void	ft_rrb(t_stack **b)
 	t_stack	*last;
 
 	last = *b;
-	while (last->next)
+	if ((*b)->next)
 	{
-		before_last = last;
-		last = last->next;
+		while (last->next)
+		{
+			before_last = last;
+			last = last->next;
+		}
+		before_last->next = NULL;
+		last->next = *b;
+		*b = last;
 	}
-	before_last->next = NULL;
-	last->next = *b;
-	*b = last;
 }

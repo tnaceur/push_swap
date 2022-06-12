@@ -67,13 +67,16 @@ int	main(int ac, char **av)
 
 	b = NULL;
 	(void)ac;
+	if (!av[1])
+		exit(1);
 	if (ft_isalnum(av) && not_dup(av))
 	{
 		fill_stack(&a, av);
-		while (1)
+		s = get_next_line(0);
+		while (s)
 		{
-			s = get_next_line(0);
 			ft_check(&a, &b, s);
+			s = get_next_line(0);
 		}
 		if (is_sorted(&a) && !b)
 			write(1, "OK\n", 3);

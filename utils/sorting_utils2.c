@@ -73,7 +73,7 @@ int	not_dup(char **av)
 				j++;
 		}
 		if (av[j] && ft_atoi(av[i]) == ft_atoi(av[j]))
-			return (0);
+			error_message("Error\n");
 		i++;
 	}
 	return (1);
