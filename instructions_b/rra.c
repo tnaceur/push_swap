@@ -17,7 +17,7 @@ void	ft_rra(t_stack **a)
 	t_stack	*before_last;
 	t_stack	*last;
 
-	if ((*a)->next)
+	if ((*a) && (*a)->next)
 	{
 		last = *a;
 		while (last->next)

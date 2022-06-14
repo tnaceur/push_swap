@@ -18,7 +18,7 @@ void	ft_rrb(t_stack **b)
 	t_stack	*last;
 
 	last = *b;
-	if ((*b)->next)
+	if ((*b) && (*b)->next)
 	{
 		while (last->next)
 		{

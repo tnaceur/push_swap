@@ -17,13 +17,16 @@ void	ss(t_stack **a)
 	t_stack	*sec;
 
 	sec = *a;
-	if (sec->next)
-		sec = sec->next;
-	else
-		return ;
-	(*a)->next = sec->next;
-	sec->next = *a;
-	*a = sec;
+	if ((*a))
+	{
+		if (sec->next)
+			sec = sec->next;
+		else
+			return ;
+		(*a)->next = sec->next;
+		sec->next = *a;
+		*a = sec;
+	}
 }
 
 void	ft_ss(t_stack **a, t_stack **b)

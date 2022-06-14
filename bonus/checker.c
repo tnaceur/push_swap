@@ -83,4 +83,6 @@ int	main(int ac, char **av)
 		else
 			write(1, "KO\n", 3);
 	}
+	else
+		error_message("Error\n");
 }

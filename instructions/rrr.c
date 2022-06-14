@@ -18,7 +18,7 @@ void	rrr(t_stack **a)
 	t_stack	*last;
 
 	last = *a;
-	if ((*a)->next)
+	if ((*a) && (*a)->next)
 	{
 		while (last->next)
 		{

@@ -59,8 +59,10 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 		 $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-bonus :   $(OBJS_B)
-		$(CC) $(CFLAGS) $(OBJS_B) -o $(BONUS)
+bonus :   $(BONUS)
+
+$(BONUS) : $(OBJS_B)
+		   $(CC) $(CFLAGS) $(OBJS_B) -o $(BONUS)
 
 clean :
 		$(RM) $(OBJS) $(OBJS_B)
